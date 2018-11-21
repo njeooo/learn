@@ -1,0 +1,28 @@
+
+<div class="container" fxLayout="column wrap" fxLayoutGap="20px">
+  <div  class="mat-card mat-card-request mat-elevation-z6">
+    <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="0.4em" fxLayout.xs="column wrap" fxLayout.sm="row wrap">
+      <mat-card class="card-image" *ngFor="let post of posts">
+        <mat-card-title  fxLayout.xs="column wrap">
+          {{post.id}}
+           <div fxFlex></div>
+           <mat-icon>delete</mat-icon>
+        </mat-card-title>
+        <img mat-card-image [src]="post.image">
+        <mat-card-content fxLayout.gt-xs="row wrap" fxLayout.xs="column wrap">
+          {{post.title}}
+        </mat-card-content>
+    </mat-card>
+    </div>
+    <div class="request-configuration-row"  fxLayoutAlign="space-around start">
+        <div fxFlex>
+          <mat-paginator 
+             [length]="length"
+             [pageSize]="pageSize"
+             [pageSizeOptions]="pageSizeOptions" 
+             (page)="onPageChanged($event)">
+          </mat-paginator>
+        </div>
+      </div> 
+</div>
+</div>
